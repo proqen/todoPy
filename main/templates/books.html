@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/checkbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Test page</h2>
+    <div class="todo_container">
+        {% for book in book_list %}
+            <div id="todoItem1" class="todo_item">
+                {{ book.title }}
+                {{ book.author }}
+                {{ book.year }}
+            </div>
+        {% endfor %}
+    </div>
+    
+</body>
+</html>
