@@ -1,11 +1,32 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/checkbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <title>Document</title>
 </head>
 <body>
     <h2>Test page</h2>
+    {% for todo in todo_list %}
+        <div id="todoItem1" class="todo_item">
+            <div class="todo_item_header">
+                <label class="checkbox_container">
+                    <input type="checkbox"/>
+                    <span class="checkmark"></span>
+                    <h4>{{ todo.text }}</h4>
+                </label>
+            </div>
+            <div class="todo_item_footer">
+                <p>{{ todo.created_at }}</p>
+                <div class="action_buttons">
+                    <img onclick="DeleteItem()" src="{% static 'img/basket.png' %}" alt="">
+                    <img onclick="PickedItem()" src="{% static 'img/star.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    {% endfor %}
 </body>
 </html>
