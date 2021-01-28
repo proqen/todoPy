@@ -33,11 +33,12 @@
                 <div class="todo_item_header">
                     
                         <label class="checkbox_container">
-                            {% if todo.is_closed %}
-                                <input type="checkbox" checked/>
-                            {% else %}
-                                <input type="checkbox"/>
-                            {% endif %}
+                            
+                            <input type="checkbox" 
+                                {% if todo.is_closed %}
+                                    checked
+                                {% endif %}
+                            />
                             <span class="checkmark"></span>
                             <a href="{% url 'checked-todo' todo.id %}">
                                 <h4>{{ todo.text }}</h4>
