@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from .models import *
 
 def homepage(request):
@@ -13,7 +13,11 @@ def bookGetAll(request):
     return render(request, "books.html", {"book_list" : book_list})
 
 def addToDo(request):
-    return render(request, "addToDo.html")
+    form = request.POST
+    text = form["todo_text"]
+    todo = ToDo(text=text)
+    todo.save()
+    return redirect(test)
 
 def removeToDo(request):
     return render(request, "removeToDo.html")

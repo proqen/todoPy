@@ -9,7 +9,17 @@
     <title>Document</title>
 </head>
 <body>
+    
+<section>
+
     <h2>Test page</h2>
+    <div class="create_container">
+        <form action="{% url 'add-todo' %}" method="POST">
+            {% csrf_token %}
+            <input name="todo_text" class="create_input" placeholder="Напишите сюда новую задачу" type="text" />
+            <button class="create_button">Добавить</button>
+        </form>
+    </div>
     <div class="todo_container">
         {% for todo in todo_list %}
             <div id="todoItem1" class="todo_item">
@@ -30,6 +40,6 @@
             </div>
         {% endfor %}
     </div>
-    
+</section>
 </body>
 </html>
