@@ -13,9 +13,24 @@
     <div class="todo_container">
         {% for book in book_list %}
             <div id="todoItem1" class="todo_item">
-                {{ book.title }}
-                {{ book.author }}
-                {{ book.year }}
+            <div class="todo_item_header">
+                <a href="{% url 'bookDetails' book.id %}">
+                    <p>{{ book.title }}</p>
+                    <p>{{ book.author }}</p>
+                </a>
+            </div>
+                <div class="todo_item_footer">
+                    <p>{{ book.year }}</p>
+                    <div class="action_buttons">
+                        
+                        <a href="{% url 'deleteBook' book.id %}"><img onclick="DeleteItem()" src="{% static 'img/basket.png' %}" alt=""></a>
+                        {% if book.is_favorite %}
+                            <a href="{% url 'bookIsFarovite' book.id %}"><img onclick="PickedItem()" src="{% static 'img/yellow.png' %}" alt=""></a>
+                        {% else %}
+                            <a href="{% url 'bookIsFarovite' book.id %}"><img onclick="PickedItem()" src="{% static 'img/star.png' %}" alt=""></a>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         {% endfor %}
     </div>

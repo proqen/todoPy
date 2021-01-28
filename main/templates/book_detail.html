@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/checkbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Test page</h2>
+    <div class="todo_container">
+        <div id="todoItem1" class="todo_item">
+            <p>{{ book.title }}</p>
+            <p>{{ book.subtitle }}</p>
+            <p>{{ book.description }}</p>
+            <p>{{ book.price }}</p>
+            <p>{{ book.genre }}</p>
+            <p>{{ book.author }}</p>
+            <p>{{ book.year }}</p>
+            <p>{{ book.date }}</p>
+            <div class="todo_item_footer">
+                {% if book.is_favorite %}
+                    <img onclick="PickedItem()" src="{% static 'img/yellow.png' %}" alt="">
+                {% else %}
+                    <img onclick="PickedItem()" src="{% static 'img/star.png' %}" alt="">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

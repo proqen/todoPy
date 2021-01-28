@@ -22,19 +22,39 @@
     </div>
     <div class="todo_container">
         {% for todo in todo_list %}
-            <div id="todoItem1" class="todo_item">
+            <div id="todoItem1" class="todo_item 
+                {% if todo.is_favorite %}
+                    marked
+                {% endif %}
+                {% if todo.is_closed %}
+                    done
+                {% endif %}
+            ">
                 <div class="todo_item_header">
-                    <label class="checkbox_container">
-                        <input type="checkbox"/>
-                        <span class="checkmark"></span>
-                        <h4>{{ todo.text }}</h4>
-                    </label>
+                    
+                        <label class="checkbox_container">
+                            {% if todo.is_closed %}
+                                <input type="checkbox" checked/>
+                            {% else %}
+                                <input type="checkbox"/>
+                            {% endif %}
+                            <span class="checkmark"></span>
+                            <a href="{% url 'checked-todo' todo.id %}">
+                                <h4>{{ todo.text }}</h4>
+                            </a>
+                        </label>
+                    
                 </div>
                 <div class="todo_item_footer">
                     <p>{{ todo.created_at }}</p>
                     <div class="action_buttons">
-                        <img onclick="DeleteItem()" src="{% static 'img/basket.png' %}" alt="">
-                        <img onclick="PickedItem()" src="{% static 'img/star.png' %}" alt="">
+                        
+                        <a href="{% url 'delete-todo' todo.id %}"><img onclick="DeleteItem()" src="{% static 'img/basket.png' %}" alt=""></a>
+                        {% if todo.is_favorite %}
+                            <a href="{% url 'unmark-todo' todo.id %}"><img onclick="PickedItem()" src="{% static 'img/yellow.png' %}" alt=""></a>
+                        {% else %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img onclick="PickedItem()" src="{% static 'img/star.png' %}" alt=""></a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

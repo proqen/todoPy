@@ -59,7 +59,6 @@ section{
     background-color: #e0e0e0;
     text-decoration: line-through;
     color: #757575;
-    pointer-events: none;
 } 
 .todo_item.done h4, .todo_item.done p, .todo_item.done span{
     color: #757575;

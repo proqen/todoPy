@@ -29,7 +29,14 @@ urlpatterns = [
     path("add/", addToDo),
     path("remove/", removeToDo),
     path("update/", updateToDo),
-    path("books", bookGetAll),
-    path("addtodo", addToDo, name = "add-todo")
+    path("books/", bookGetAll),
+    path("addtodo", addToDo, name = "add-todo"),
+    path("removeToDo/<id>/", removeToDo, name = "delete-todo"),
+    path("markToDo/<id>/", markToDo, name = "mark-todo"),
+    path("unmarkToDo/<id>/", unmarkToDo, name = "unmark-todo"),
+    path("checkedToDo/<id>/", checkedToDo, name = "checked-todo"),
+    path("bookIsFarovite/<id>/", bookIsFarovite, name = "bookIsFarovite"),
+    path("deleteBook/<id>/", deleteBook, name = "deleteBook"),
+    path("bookDetails/<id>/", bookDetails, name = "bookDetails")
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
