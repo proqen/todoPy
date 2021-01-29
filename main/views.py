@@ -57,7 +57,21 @@ def bookDetails(request, id):
     book = Book.objects.get(id=id)
     return render(request, "book_detail.html", {"book" : book})
 
+def bookAdd(request):
+    form = request.POST
+    book = Book(title = form["book_title"],
+    subtitle=form["book_subtitle"],
+    description=form["book_description"],
+    price=form["book_price"],
+    genre=form["book_genre"],
+    author=form["book_author"],
+    year=form["book_year"])
+    print(book)
+    book.save()
+    return redirect(bookGetAll)
 
+def book_add(request):
+    return render(request, "book_add.html")
 
 def updateToDo(request):
     return render(request, "updateToDo.html")

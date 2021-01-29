@@ -11,8 +11,13 @@
 <body>
     
 <section>
-
-    <h2>Test page</h2>
+    <div class="create_container">
+        <h2>Test page</h2>
+        <p>
+            <a href="/book_add/"></a>
+        </p>
+    </div>
+    
     <div class="create_container">
         <form action="{% url 'add-todo' %}" method="POST">
             {% csrf_token %}

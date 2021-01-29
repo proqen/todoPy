@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/checkbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Test page</h2>
+    <div class="todo_container">
+        <form action="{% url 'book-add' %}" method="POST">
+            {% csrf_token %}
+
+            <div class="todo_item">
+                <input name="book_title" class="create_input" placeholder="Title" type="text" />
+                <input name="book_subtitle" class="create_input" placeholder="Subtitle" type="text" />
+                <input name="book_description" class="create_input" placeholder="Description" type="text" />
+                <input name="book_price" class="create_input" placeholder="Price" type="text" />
+                <input name="book_genre" class="create_input" placeholder="Genre" type="text" />
+                <input name="book_author" class="create_input" placeholder="Author" type="text" />
+                <input name="book_year" class="create_input" placeholder="year" type="date" />
+            </div>
+            <button class="create_button">Добавить</button>
+
+        </form>
+    </div>
+</body>
+</html>

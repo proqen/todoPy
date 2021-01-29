@@ -37,6 +37,10 @@ urlpatterns = [
     path("checkedToDo/<id>/", checkedToDo, name = "checked-todo"),
     path("bookIsFarovite/<id>/", bookIsFarovite, name = "bookIsFarovite"),
     path("deleteBook/<id>/", deleteBook, name = "deleteBook"),
-    path("bookDetails/<id>/", bookDetails, name = "bookDetails")
+    path("bookDetails/<id>/", bookDetails, name = "bookDetails"),
+
+    path("book-add/", bookAdd, name = "book-add"),
+
+    path("book_add/", book_add)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
